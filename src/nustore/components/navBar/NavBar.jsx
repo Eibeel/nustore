@@ -1,7 +1,6 @@
 import React from "react";
 import { Flex, Heading, IconButton, Input } from "@chakra-ui/react";
 import { Cart } from "iconoir-react";
-import { BannerCarousel } from "../carousel/BannerCarousel";
 import { DrawerLeft } from "../drawer/DrawerLeft";
 
 export const NavBar = () => {
@@ -28,10 +27,6 @@ export const NavBar = () => {
                     <IconButton aria-label="Carrito" variant="ghost" colorScheme="brand.30" icon={<Cart />} />
                 </Flex>
             </Flex>
-
-            <section className="wrapper_banner">
-                <BannerCarousel />
-            </section>
         </div>
     );
 };

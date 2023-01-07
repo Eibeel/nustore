@@ -5,38 +5,48 @@ import { NavBar } from "../components/navBar/NavBar";
 import { ProductCard } from "../components/productCard/ProductCard";
 import { GridCategories } from "../components/gridCategories/GridCategories";
 import { Footer } from "../components/footer/Footer";
+import { BannerCarousel } from "../components/carousel/BannerCarousel";
 
 export const HomePage = () => {
-
     return (
-        <Flex flexDirection="column" alignItems="center" overflowX="hidden">
+        <Box overflowX="hidden">
             <NavBar />
+            <section className="wrapper_banner">
+                <BannerCarousel />
+            </section>
+            <Flex flexDirection="column" alignItems="center" overflowX="hidden">
 
-            <Flex flexDir="column" mt="32px" mx="16px" w={{ base: "22rem", md: "44.5rem" }}>
-                <Text fontSize={{ base: "16px", md: "18px" }} fontWeight="semibold"> Tal vez te pueda interesar </Text>
-                <Text fontSize="14px" fontWeight="regular" color="brand.20"> Explora entre miles de productos </Text>
+                <Flex
+                    flexDir="column"
+                    mt="32px"
+                    mx="16px"
+                    w={{ base: "22rem", md: "44.5rem" }}
+                >
+                    <Text fontSize={{ base: "16px", md: "18px" }} fontWeight="semibold"> Tal vez te pueda interesar </Text>
+                    <Text fontSize="14px" fontWeight="regular" color="brand.20"> Explora entre miles de productos </Text>
+                </Flex>
+
+                <VStack spacing={4} m="24px auto">
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                </VStack>
+
+                <Link fontSize="14px" fontWeight="medium" color="brand.20" as={ReactLink} to="/categoria">
+                    Ver más...
+                </Link>
+
+                <Box w={{ base: "22rem", md: "md", lg: "44.5rem" }} m="28px auto 18px">
+                    <Text fontWeight="semibold">Categorias populares</Text>
+                    <Text fontSize="14px" fontWeight="regular" color="brand.20">
+                        Lo que mas buscan los usuarios
+                    </Text>
+                </Box>
+
+                <GridCategories />
+                <Footer />
+
             </Flex>
-
-            <VStack spacing={4} m="24px auto">
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-            </VStack>
-
-            <Link fontSize="14px" fontWeight="medium" color="brand.20" as={ReactLink} to="/categoria_seleccionada">
-                Ver más...
-            </Link>
-
-            <Box w={{ base: "22rem", md: "md", lg: "44.5rem" }} m="28px auto 18px">
-                <Text fontWeight="semibold">Categorias populares</Text>
-                <Text fontSize="14px" fontWeight="regular" color="brand.20">
-                    Lo que mas buscan los usuarios
-                </Text>
-            </Box>
-
-            <GridCategories />
-            <Footer />
-
-        </Flex>
+        </Box>
     )
 }

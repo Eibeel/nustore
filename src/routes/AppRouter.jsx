@@ -6,7 +6,7 @@ export const AppRouter = () => {
         <Routes>
 
             <Route path="home" element={<HomePage />} />
-            <Route path="categoria_seleccionada" element={<SelectedCategoryPage />} />
+            <Route path="categoria" element={<SelectedCategoryPage />} />
             <Route path="ofertas" element={<OfferPage />} />
             <Route path="articulo" element={<ArticleInfo />} />
             <Route path="carrito" element={<ShoppingPage />} />

@@ -1,6 +1,7 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
 import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, HStack, IconButton, Text, useDisclosure, VStack } from '@chakra-ui/react'
 import { MenuScale } from 'iconoir-react';
-import React from 'react'
 
 export const DrawerLeft = () => {
 
@@ -30,7 +31,7 @@ export const DrawerLeft = () => {
                     </DrawerBody>
                     <DrawerFooter justifyContent="center" borderTopWidth="1px">
                         <HStack spacing="2rem">
-                            <Button>Iniciar sesión</Button>
+                            <Button as={Link} to="/login">Iniciar sesión</Button>
                             <Button>Registrarse</Button>
                         </HStack>
                     </DrawerFooter>
