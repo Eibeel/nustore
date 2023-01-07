@@ -9,14 +9,14 @@ export const DrawerLeft = () => {
     return (
         <>
             <IconButton
-                icon={<MenuScale />}
-                colorScheme="brand.30"
-                onClick={onOpen}
                 aria-label="Categorias"
+                colorScheme="brand.30"
+                icon={<MenuScale />}
+                onClick={onOpen}
                 variant="ghost"
             />
 
-            <Drawer placement='left' onClose={onClose} isOpen={isOpen} size="xs">
+            <Drawer placement='left' onClose={onClose} isOpen={isOpen} size={[ 'xs', 'sm' ]}>
                 <DrawerOverlay />
                 <DrawerContent>
                     <DrawerCloseButton />
@@ -28,7 +28,7 @@ export const DrawerLeft = () => {
                             <Text fontSize="18px" fontWeight="semibold" w="100%">MrEibel</Text>
                         </VStack>
                     </DrawerBody>
-                    <DrawerFooter justifyContent="center">
+                    <DrawerFooter justifyContent="center" borderTopWidth="1px">
                         <HStack spacing="2rem">
                             <Button>Iniciar sesión</Button>
                             <Button>Registrarse</Button>

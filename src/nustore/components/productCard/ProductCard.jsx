@@ -3,8 +3,6 @@ import { Card, CardBody, Image, Stack, Text } from "@chakra-ui/react";
 
 export const ProductCard = () => {
 
-    
-
     return (
             <Card
                 align="center"
@@ -13,7 +11,8 @@ export const ProductCard = () => {
                 h="auto"
                 p="12px"
                 variant="outline"
-                w={{ base: "22rem", md: "md" }}
+                w={['22rem', 'md', '44.5rem']}
+                cursor="pointer"
             >
                 <Image
                     src="https://placeimg.com/104/96/any/grayscale"
