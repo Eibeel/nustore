@@ -1,6 +1,5 @@
 import { Flex, Text, VStack } from "@chakra-ui/react"
-import { NavBar } from "../components/navBar/NavBar"
-import { ProductCard } from "../components/productCard/ProductCard"
+import { NavBar, ProductCard } from "../components"
 
 export const SelectedCategoryPage = () => {
     return (

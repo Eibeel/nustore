@@ -1,8 +1,8 @@
 import React from "react";
+import { Link as LinkReact} from "react-router-dom";
 import { Flex, Heading, IconButton, Input } from "@chakra-ui/react";
 import { Cart } from "iconoir-react";
-import { DrawerLeft } from "../drawer/DrawerLeft";
-import { Link } from "react-router-dom";
+import { DrawerLeft } from "./";
 
 export const NavBar = () => {
     return (
@@ -18,7 +18,7 @@ export const NavBar = () => {
                 rowGap="24px"
                 overflow="hidden"
             >
-                <Heading fontSize={{ base: "26px", md: "28px" }} fontWeight="700" as={Link} to="/home">
+                <Heading fontSize={{ base: "26px", md: "28px" }} fontWeight="700" as={LinkReact} to="/home">
                         nustore
                 </Heading>
 
@@ -37,9 +37,11 @@ export const NavBar = () => {
 
                     <IconButton
                         aria-label="Carrito"
-                        variant="ghost"
+                        as={LinkReact}
                         colorScheme="brand.30"
                         icon={<Cart />}
+                        to="/carrito"
+                        variant="ghost"
                     />
                 </Flex>
             </Flex>

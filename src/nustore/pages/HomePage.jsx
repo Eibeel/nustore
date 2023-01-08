@@ -1,11 +1,7 @@
 import React from "react";
 import { Link as ReactLink } from "react-router-dom";
 import { Box, Flex, Link, Text, VStack } from "@chakra-ui/react";
-import { NavBar } from "../components/navBar/NavBar";
-import { ProductCard } from "../components/productCard/ProductCard";
-import { GridCategories } from "../components/gridCategories/GridCategories";
-import { Footer } from "../components/footer/Footer";
-import { BannerCarousel } from "../components/carousel/BannerCarousel";
+import { BannerCarousel, NavBar, GridCategories, Footer, ProductCard } from '../components'
 
 export const HomePage = () => {
     return (

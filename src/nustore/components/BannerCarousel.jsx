@@ -1,9 +1,9 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import bannerOffer from "../../../assets/images/bannerOffers.jpg";
-import brandBanner from "../../../assets/images/brandBanner.jpg";
-import bannerTrending from "../../../assets/images/bannerTrending.jpg";
+import bannerOffer from "../../assets/images/bannerOffers.jpg";
+import brandBanner from "../../assets/images/brandBanner.jpg";
+import bannerTrending from "../../assets/images/bannerTrending.jpg";
 import "./bannerCarousel.css";
 
 export const BannerCarousel = () => {
