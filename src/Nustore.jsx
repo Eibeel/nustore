@@ -1,4 +1,4 @@
-import { AppRouter } from "./routes/AppRouter";
+import { AppRouter } from "./router/AppRouter";
 import { AppTheme } from "./theme";
 
 const Nustore = () => {

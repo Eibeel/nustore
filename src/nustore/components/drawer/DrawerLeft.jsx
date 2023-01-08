@@ -31,8 +31,8 @@ export const DrawerLeft = () => {
                     </DrawerBody>
                     <DrawerFooter justifyContent="center" borderTopWidth="1px">
                         <HStack spacing="2rem">
-                            <Button as={Link} to="/login">Iniciar sesión</Button>
-                            <Button>Registrarse</Button>
+                            <Button as={Link} to="/auth/login">Iniciar sesión</Button>
+                            <Button as={Link} to="/auth/register">Registrarse</Button>
                         </HStack>
                     </DrawerFooter>
                 </DrawerContent>
