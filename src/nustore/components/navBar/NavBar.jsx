@@ -2,13 +2,24 @@ import React from "react";
 import { Flex, Heading, IconButton, Input } from "@chakra-ui/react";
 import { Cart } from "iconoir-react";
 import { DrawerLeft } from "../drawer/DrawerLeft";
+import { Link } from "react-router-dom";
 
 export const NavBar = () => {
     return (
         <div>
-            <Flex bg="brand.30" w="100vw" h="132px" color="brand.0" padding="18px" flexDir="column" alignItems="center" rowGap="24px" overflow="hidden">
-                <Heading fontSize={{ base: "26px", md: "28px" }} fontWeight="700">
-                    nustore
+            <Flex
+                bg="brand.30"
+                w="100vw"
+                h="132px"
+                color="brand.0"
+                padding="18px"
+                flexDir="column"
+                alignItems="center"
+                rowGap="24px"
+                overflow="hidden"
+            >
+                <Heading fontSize={{ base: "26px", md: "28px" }} fontWeight="700" as={Link} to="/home">
+                        nustore
                 </Heading>
 
                 <Flex alignItems="center" columnGap="16px">
@@ -24,7 +35,12 @@ export const NavBar = () => {
                         w={{ base: "16.5rem", md: "md", lg: "40em" }}
                     />
 
-                    <IconButton aria-label="Carrito" variant="ghost" colorScheme="brand.30" icon={<Cart />} />
+                    <IconButton
+                        aria-label="Carrito"
+                        variant="ghost"
+                        colorScheme="brand.30"
+                        icon={<Cart />}
+                    />
                 </Flex>
             </Flex>
         </div>

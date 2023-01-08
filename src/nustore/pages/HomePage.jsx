@@ -14,16 +14,30 @@ export const HomePage = () => {
             <section className="wrapper_banner">
                 <BannerCarousel />
             </section>
-            <Flex flexDirection="column" alignItems="center" overflowX="hidden">
-
+            <Flex
+                flexDirection="column"
+                alignItems="center"
+                overflowX="hidden"
+            >
                 <Flex
                     flexDir="column"
                     mt="32px"
                     mx="16px"
                     w={{ base: "22rem", md: "44.5rem" }}
                 >
-                    <Text fontSize={{ base: "16px", md: "18px" }} fontWeight="semibold"> Tal vez te pueda interesar </Text>
-                    <Text fontSize="14px" fontWeight="regular" color="brand.20"> Explora entre miles de productos </Text>
+                    <Text
+                        fontSize={{ base: "16px", md: "18px" }}
+                        fontWeight="semibold"
+                    >
+                        Tal vez te pueda interesar
+                    </Text>
+                    <Text
+                        fontSize="14px"
+                        fontWeight="regular"
+                        color="brand.20"
+                    >
+                        Explora entre miles de productos
+                    </Text>
                 </Flex>
 
                 <VStack spacing={4} m="24px auto">
@@ -32,21 +46,36 @@ export const HomePage = () => {
                     <ProductCard />
                 </VStack>
 
-                <Link fontSize="14px" fontWeight="medium" color="brand.20" as={ReactLink} to="/categoria">
+                <Link
+                    fontSize="14px"
+                    fontWeight="medium"
+                    color="brand.20"
+                    as={ReactLink}
+                    to="/categoria"
+                >
                     Ver más...
                 </Link>
 
-                <Box w={{ base: "22rem", md: "md", lg: "44.5rem" }} m="28px auto 18px">
-                    <Text fontWeight="semibold">Categorias populares</Text>
-                    <Text fontSize="14px" fontWeight="regular" color="brand.20">
+                <Box
+                    w={{ base: "22rem", md: "md", lg: "44.5rem" }}
+                    m="28px auto 18px"
+                >
+                    <Text
+                        fontWeight="semibold"
+                    >
+                        Categorias populares
+                    </Text>
+                    <Text
+                        fontSize="14px"
+                        fontWeight="regular"
+                        color="brand.20"
+                    >
                         Lo que mas buscan los usuarios
                     </Text>
                 </Box>
-
                 <GridCategories />
                 <Footer />
-
             </Flex>
         </Box>
-    )
-}
+    );
+};
