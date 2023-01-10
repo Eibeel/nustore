@@ -1,4 +1,4 @@
-import { Box, IconButton, Text, HStack } from '@chakra-ui/react'
+import { Box, IconButton, Text, HStack, Link } from '@chakra-ui/react'
 import { GitHub } from 'iconoir-react'
 import React from 'react'
 
@@ -26,8 +26,10 @@ export const Footer = () => {
                 >
                     Nustore
                 </Text>
-
-                <IconButton icon={<GitHub />} borderRadius="100%" variant="link"/>
+                
+                <Link href='https://github.com/Eibeel' target="_blank">
+                    <IconButton icon={<GitHub />} borderRadius="100%" variant="link"/>
+                </Link>
             </HStack>
         </Box>
     )

@@ -24,7 +24,6 @@ export const NavBar = () => {
 
                 <Flex alignItems="center" columnGap="16px">
                     <DrawerLeft />
-
                     <Input
                         bg="#0E1116"
                         border="none"
@@ -34,7 +33,6 @@ export const NavBar = () => {
                         variant="outline"
                         w={{ base: "16.5rem", md: "md", lg: "40em" }}
                     />
-
                     <IconButton
                         aria-label="Carrito"
                         as={LinkReact}
