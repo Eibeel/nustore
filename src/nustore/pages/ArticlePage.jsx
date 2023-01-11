@@ -1,5 +1,6 @@
 import { Box, Image, Flex } from "@chakra-ui/react"
 import { ItemInformation, NavBar } from "../components"
+import ImageExample from '../../assets/images/examples.jpg'
 
 export const ArticlePage = () => {
     return (
@@ -9,11 +10,13 @@ export const ArticlePage = () => {
 
             <Box>
                 <Image
-                    src="https://placeimg.com/400/320/any"
+                    src={ImageExample}
                     objectFit="cover"
-                    htmlWidth={{ base: "100vw", md: "332px" }}
-                    htmlHeight={{ base: "320px", md: "332px" }}
-                />
+                    height={{ base: "20rem", md: "22rem" }}
+                    width={{ base: "100vw", md: "24rem" }}
+                    // htmlWidth={{ base: "50%", md: "332px" }}
+                    // htmlHeight={{ base: "320px", md: "332px" }}
+                    />
             </Box>
 
             <ItemInformation />

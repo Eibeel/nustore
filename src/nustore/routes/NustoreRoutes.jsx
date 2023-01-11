@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { ArticlePage } from "../pages/ArticlePage"
 import { HomePage } from "../pages/HomePage"
-import { OfferPage } from "../pages/OfferPage"
 import { SelectedCategoryPage } from "../pages/SelectedCategoryPage"
 import { ShoppingPage } from "../pages/ShoppingPage"
 
@@ -11,7 +10,6 @@ export const NustoreRoutes = () => {
 
             <Route path="/home" element={<HomePage />} />
             <Route path="/categoria" element={<SelectedCategoryPage />} />
-            <Route path="/ofertas" element={<OfferPage />} />
             <Route path="/articulo" element={<ArticlePage />} />
             <Route path="/carrito" element={<ShoppingPage />} />
 
