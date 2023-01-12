@@ -14,8 +14,6 @@ export const ArticlePage = () => {
                     objectFit="cover"
                     height={{ base: "20rem", md: "22rem" }}
                     width={{ base: "100vw", md: "24rem" }}
-                    // htmlWidth={{ base: "50%", md: "332px" }}
-                    // htmlHeight={{ base: "320px", md: "332px" }}
                     />
             </Box>
 
