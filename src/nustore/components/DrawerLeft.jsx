@@ -33,6 +33,14 @@ export const DrawerLeft = () => {
                         <HStack spacing="2rem">
                             <Button as={Link} to="/auth/login">Iniciar sesión</Button>
                             <Button as={Link} to="/auth/register">Registrarse</Button>
+                            {/* 
+                            
+                            [+] validar autenticacion para mostrar componente
+                            
+                            <Text fontWeight="bold" fontSize="20px">Abel Guardo</Text>
+                            <LogOut cursor="pointer" color='#E54335'/> 
+                            
+                            */}
                         </HStack>
                     </DrawerFooter>
                 </DrawerContent>
