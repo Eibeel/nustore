@@ -23,6 +23,7 @@ export const LoginPage = () => {
           nustore
         </Heading>
       </Flex>
+      
 
       <FormControl
         BtnLabel="Ingresar"

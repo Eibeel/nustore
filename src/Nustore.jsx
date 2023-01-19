@@ -3,9 +3,9 @@ import { AppTheme } from "./theme";
 
 const Nustore = () => {
   return (
-    <AppTheme>
-      <AppRouter />
-    </AppTheme>
+      <AppTheme>
+        <AppRouter />
+      </AppTheme>
   );
 };
 
