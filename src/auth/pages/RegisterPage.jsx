@@ -1,6 +1,6 @@
 import { Flex, Heading } from "@chakra-ui/react"
 import { Link as LinkReact } from "react-router-dom"
-import { FormControl } from "../../nustore/components"
+import { FormRegister } from "../../nustore/components"
 
 export const RegisterPage = () => {
   return (
@@ -25,13 +25,7 @@ export const RegisterPage = () => {
         </Heading>
       </Flex>
 
-      <FormControl
-        BtnLabel="Registrarse"
-        LinkAuth="/auth/login"
-        LinkLabel="Ingresar"
-        TextLabel="¿Ya tienes una cuenta?"
-      />
-
+      <FormRegister />
     </div>
   )
 }
