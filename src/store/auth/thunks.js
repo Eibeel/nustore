@@ -1,14 +1,13 @@
 import { loginUser, logout, registerUser } from '../../services/auth';
+import { login } from './authSlice';
 
 export const startLogin = ({ email, password }) => {
 
     return async (dispatch) => {
 
-        const { ok, uid, name, errorMessage } = await loginUser({ email, password });
+        const { uid, name } = await loginUser({ email, password });
 
-        if (!ok) return dispatch(logout({ errorMessage }));
-
-        dispatch(loginUser({ uid, name }))
+        dispatch(login({ uid, name }))
 
     }
 }
@@ -17,11 +16,9 @@ export const startRegister = ({ email, password, displayName }) => {
 
     return async (dispatch) => {
 
-        const { ok, uid, name, errorMessage } = await registerUser({ email, password, displayName })
+        const { uid, name } = await registerUser({ email, password, displayName })
 
-        if (!ok) return dispatch(logout({ errorMessage }));
-
-        dispatch(loginUser({ uid, email, password, name }))
+        dispatch(login({ uid, email, password, name }))
     }
 
 }
