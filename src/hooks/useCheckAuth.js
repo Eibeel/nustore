@@ -17,9 +17,9 @@ export const useCheckAuth = () => {
 
             if (!user) return dispatch(logout());
 
-            const { uid, name } = user;
+            const { uid, displayName } = user;
 
-            dispatch(login({uid, name}))
+            dispatch(login({uid, displayName}))
         })
     
     // eslint-disable-next-line react-hooks/exhaustive-deps

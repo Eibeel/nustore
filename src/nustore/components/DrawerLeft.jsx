@@ -43,7 +43,7 @@ export const DrawerLeft = () => {
                             (status === 'authenticated')
                                 ? (
                                     <HStack spacing="2rem">
-                                        <Text fontWeight="bold" fontSize="20px">Abel Guardo</Text>
+                                        <Text fontWeight="semibold" fontSize="20px">Bienvenido, {displayName}.</Text>
                                         <LogOut onClick={onLogout} as={Link} to="/home" cursor="pointer" color='#E54335' />
                                     </HStack>
                                 )

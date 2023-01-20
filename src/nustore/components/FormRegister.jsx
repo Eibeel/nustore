@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link as ReactLink } from 'react-router-dom'
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link as ReactLink, useNavigate } from 'react-router-dom'
 import { Controller, useForm } from "react-hook-form";
 import { Button, Flex, FormControl, FormErrorMessage, FormLabel, Input, InputGroup, InputRightElement, Link, Text } from "@chakra-ui/react"
 import { FormCard } from "./"
@@ -18,6 +18,17 @@ export const FormRegister = () => {
         });
 
     const dispatch = useDispatch();
+
+    const { status } = useSelector(state => state.auth);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (status === 'authenticated') {
+            return navigate("/home")
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [status])
 
     const onSubmit = ({ email, password, displayName }) => {
         return new Promise(resolve => {

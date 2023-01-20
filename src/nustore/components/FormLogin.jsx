@@ -25,10 +25,10 @@ export const FormLogin = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [status])
 
-    const onSubmit = ({ email, password }) => {
+    const onSubmit = ( email, password ) => {
         return new Promise(resolve => {
             setTimeout(() => {
-                dispatch(startLogin({ email, password }))
+                dispatch(startLogin(email, password))
                 resolve();
             }, 1000);
         })
