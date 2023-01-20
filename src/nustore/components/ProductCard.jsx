@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, CardBody, Image, Stack, Text } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
 
 export const ProductCard = () => {
 
@@ -13,6 +14,8 @@ export const ProductCard = () => {
                 variant="outline"
                 w={['22rem', 'md', '44.5rem']}
                 cursor="pointer"
+                as={Link}
+                to="/articulo"
             >
                 <Image
                     src="https://placeimg.com/104/96/any/grayscale"

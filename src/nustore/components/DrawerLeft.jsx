@@ -1,11 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, HStack, IconButton, Text, useDisclosure, VStack } from '@chakra-ui/react'
-import { MenuScale } from 'iconoir-react';
+import { LogOut, MenuScale } from 'iconoir-react';
+import { useCheckAuth } from '../../hooks/useCheckAuth';
+import { useDispatch, useSelector } from 'react-redux';
+import { startLogout } from '../../store/auth';
 
 export const DrawerLeft = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { displayName } = useSelector(state => state.auth)
+    const status = useCheckAuth();
+    const dispatch = useDispatch();
+    const onLogout = () => {
+        dispatch(startLogout())
+    }
 
     return (
         <>
@@ -17,7 +26,7 @@ export const DrawerLeft = () => {
                 variant="ghost"
             />
 
-            <Drawer placement='left' onClose={onClose} isOpen={isOpen} size={[ 'xs', 'sm' ]}>
+            <Drawer placement='left' onClose={onClose} isOpen={isOpen} size={['xs', 'sm']}>
                 <DrawerOverlay />
                 <DrawerContent>
                     <DrawerCloseButton />
@@ -30,18 +39,21 @@ export const DrawerLeft = () => {
                         </VStack>
                     </DrawerBody>
                     <DrawerFooter justifyContent="center" borderTopWidth="1px">
-                        <HStack spacing="2rem">
-                            <Button as={Link} to="/auth/login">Iniciar sesión</Button>
-                            <Button as={Link} to="/auth/register">Registrarse</Button>
-                            {/* 
-                            
-                            [+] validar autenticacion para mostrar componente
-                            
-                            <Text fontWeight="bold" fontSize="20px">Abel Guardo</Text>
-                            <LogOut cursor="pointer" color='#E54335'/> 
-                            
-                            */}
-                        </HStack>
+                        {
+                            (status === 'authenticated')
+                                ? (
+                                    <HStack spacing="2rem">
+                                        <Text fontWeight="bold" fontSize="20px">Abel Guardo</Text>
+                                        <LogOut onClick={onLogout} as={Link} to="/home" cursor="pointer" color='#E54335' />
+                                    </HStack>
+                                )
+                                : (
+                                    <HStack spacing="2rem">
+                                        <Button as={Link} to="/login">Iniciar sesión</Button>
+                                        <Button as={Link} to="/register">Registrarse</Button>
+                                    </HStack>
+                                )
+                        }
                     </DrawerFooter>
                 </DrawerContent>
             </Drawer>

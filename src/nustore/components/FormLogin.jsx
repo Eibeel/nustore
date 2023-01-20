@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link as ReactLink } from 'react-router-dom'
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link as ReactLink, useNavigate } from 'react-router-dom'
 import { Controller, useForm } from "react-hook-form";
 import { Button, Flex, FormControl, FormErrorMessage, FormLabel, Input, InputGroup, InputRightElement, Link, Text } from "@chakra-ui/react"
 import { FormCard } from "./"
@@ -14,20 +14,33 @@ export const FormLogin = () => {
     const { handleSubmit, control, formState: { errors, isSubmitting } } = useForm({ defaultValues: { email: "", password: "" }, mode: "onChange" });
     const dispatch = useDispatch();
 
-    const onSubmit = ({email, password}) => {
+    const { status } = useSelector(state => state.auth);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (status === 'authenticated') {
+            return navigate("/home")
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [status])
+
+    const onSubmit = ({ email, password }) => {
         return new Promise(resolve => {
             setTimeout(() => {
-                dispatch(startLogin({email, password}))
+                dispatch(startLogin({ email, password }))
                 resolve();
             }, 1000);
         })
-    }
+    };
 
     return (
         <FormCard>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <FormControl isRequired isInvalid={errors.email}>
                     <Flex flexDir="column">
+
+                        {/* email */}
                         <FormLabel
                             textAlign="start"
                         >
@@ -39,11 +52,11 @@ export const FormLogin = () => {
                             rules={{
                                 required: {
                                     value: true,
-                                    message: "Campo obligatorio.",
+                                    message: "Por favor, ingrese su correo.",
                                 },
                                 pattern: {
                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                    message: "Ingresa un correo válido."
+                                    message: "Ingrese un correo válido."
                                 }
                             }}
                             render={({ field: { value, onChange } }) => (
@@ -56,22 +69,25 @@ export const FormLogin = () => {
                                 />
                             )}
                         />
-                        <FormErrorMessage>{errors.email && errors.email.message}</FormErrorMessage>
+                        <FormErrorMessage>
+                            {errors.email && errors.email.message}
+                        </FormErrorMessage>
+
+
+                        {/* password */}
                         <FormLabel
                             textAlign="start"
                             mt="1rem"
                         >
                             Contraseña
                         </FormLabel>
-
-                        {/* password */}
                         <Controller
                             control={control}
                             name="password"
                             rules={{
                                 required: {
                                     value: true,
-                                    message: 'Este campo es obligatorio.'
+                                    message: 'Por favor, ingrese su contraseña.'
                                 },
                             }}
                             render={({ field: { value, onChange } }) => (
@@ -91,7 +107,9 @@ export const FormLogin = () => {
                                 </InputGroup>
                             )}
                         />
-                        <FormErrorMessage>{errors.password && errors.password.message}</FormErrorMessage>
+                        <FormErrorMessage>
+                            {errors.password && errors.password.message}
+                        </FormErrorMessage>
 
                         <Button
                             type="submit"
@@ -119,7 +137,7 @@ export const FormLogin = () => {
                             fontSize="14px"
                             fontWeight="bold"
                             m="auto"
-                            to="/auth/register"
+                            to="/register"
                         >
                             Registrate :)
                         </Link>

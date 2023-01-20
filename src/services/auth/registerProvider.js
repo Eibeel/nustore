@@ -9,8 +9,9 @@ export const registerUser = async ({ email, password }) => {
         const { user: { uid, displayName } } = await createUserWithEmailAndPassword(Auth, email, password);
 
         return {
+            ok: true,
             uid,
-            name: displayName
+            displayName
         }
 
     } catch (error) {
