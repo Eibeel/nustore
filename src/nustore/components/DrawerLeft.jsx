@@ -1,19 +1,45 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, HStack, IconButton, Text, useDisclosure, VStack } from '@chakra-ui/react'
+import {
+    Button,
+    Drawer,
+    DrawerBody,
+    DrawerCloseButton,
+    DrawerContent,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerOverlay,
+    HStack,
+    IconButton,
+    Text,
+    useDisclosure,
+    VStack
+} from '@chakra-ui/react'
 import { LogOut, MenuScale } from 'iconoir-react';
 import { useCheckAuth } from '../../hooks/useCheckAuth';
 import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../../store/auth';
+import { setCategory, startIsLoading } from '../../store/nustore/thunks';
+import { SkeletonCategories } from './SkeletonCategories';
 
 export const DrawerLeft = () => {
 
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const { displayName } = useSelector(state => state.auth)
     const status = useCheckAuth();
     const dispatch = useDispatch();
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { categories, isLoading } = useSelector(state => state.nustore);
+    const { displayName } = useSelector(state => state.auth)
+
     const onLogout = () => {
         dispatch(startLogout())
+    }
+
+    const handleCategory = () => {
+        onOpen();
+        dispatch(startIsLoading());
+        setTimeout(() => {
+            dispatch(setCategory());
+        }, 600)
     }
 
     return (
@@ -22,7 +48,7 @@ export const DrawerLeft = () => {
                 aria-label="Categorias"
                 colorScheme="brand.30"
                 icon={<MenuScale />}
-                onClick={onOpen}
+                onClick={handleCategory}
                 variant="ghost"
             />
 
@@ -32,10 +58,17 @@ export const DrawerLeft = () => {
                     <DrawerCloseButton />
                     <DrawerHeader borderBottomWidth="1px" fontSize="24px" fontWeight="bold">Explorar</DrawerHeader>
                     <DrawerBody>
-                        <VStack spacing="14px" pt="8px">
-                            <Text fontSize="18px" fontWeight="semibold" w="100%">Hola</Text>
-                            <Text fontSize="18px" fontWeight="semibold" w="100%">Mundo</Text>
-                            <Text fontSize="18px" fontWeight="semibold" w="100%">MrEibel</Text>
+                        <VStack spacing="14px" py="1rem">
+                            {
+                                (isLoading === true)
+                                    ? <SkeletonCategories />
+                                    :
+                                    categories.map(category => (
+                                        <Text key={category.id} fontSize="18px" fontWeight="semibold" w="100%" cursor="pointer" _hover={{ color: "#E54335" }}>
+                                            {category.name}
+                                        </Text>
+                                    ))
+                            }
                         </VStack>
                     </DrawerBody>
                     <DrawerFooter justifyContent="center" borderTopWidth="1px">
