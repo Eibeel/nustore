@@ -38,8 +38,6 @@ export const HomePage = () => {
 
                 <VStack spacing={4} m="24px auto">
                     <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
                 </VStack>
 
                 <Link

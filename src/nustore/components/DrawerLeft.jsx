@@ -19,7 +19,7 @@ import { LogOut, MenuScale } from 'iconoir-react';
 import { useCheckAuth } from '../../hooks/useCheckAuth';
 import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../../store/auth';
-import { setCategory, startIsLoading } from '../../store/nustore/thunks';
+import { setCategory, setItems, startIsLoading } from '../../store/nustore/thunks';
 import { SkeletonCategories } from './SkeletonCategories';
 
 export const DrawerLeft = () => {
@@ -27,7 +27,7 @@ export const DrawerLeft = () => {
     const status = useCheckAuth();
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { categories, isLoading } = useSelector(state => state.nustore);
+    const { categories, isLoading, page } = useSelector(state => state.nustore);
     const { displayName } = useSelector(state => state.auth)
 
     const onLogout = () => {
@@ -64,7 +64,17 @@ export const DrawerLeft = () => {
                                     ? <SkeletonCategories />
                                     :
                                     categories.map(category => (
-                                        <Text key={category.id} fontSize="18px" fontWeight="semibold" w="100%" cursor="pointer" _hover={{ color: "#E54335" }}>
+                                        <Text
+                                            key={category.id}
+                                            fontSize="18px"
+                                            fontWeight="semibold"
+                                            w="100%"
+                                            cursor="pointer"
+                                            _hover={{ color: "#E54335" }}
+                                            as={Link}
+                                            to={`/categoria/${category.id}`}
+                                            onClick={() => dispatch(setItems(page, category.id))}
+                                        >
                                             {category.name}
                                         </Text>
                                     ))

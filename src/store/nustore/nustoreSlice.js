@@ -6,6 +6,8 @@ export const nustoreSlice = createSlice({
         categories: [],
         products: [],
         description: [],
+        page: 0,
+        category_id: 0,
         isLoading: false
     },
     reducers: {
@@ -14,7 +16,9 @@ export const nustoreSlice = createSlice({
             state.isLoading = false;
         },
         setProducts: (state, action) => {
-            state.products = action.payload;
+            state.products = action.payload.products;
+            state.page = action.payload.page;
+            state.category_id = action.payload.category_id
             state.isLoading = false;
         },
         setDescription: (state, action) => {
@@ -23,7 +27,7 @@ export const nustoreSlice = createSlice({
         },
         startLoading: (state) => {
             state.isLoading = true;
-        }
+        },
     }
 });
 
