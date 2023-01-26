@@ -4,8 +4,6 @@ Explora entre miles de productos, navega entre las diferentes categorías y obse
 
 - Explorar... 🚀
 
-![nustore](/src/assets/images/nustoreImage.png)
-
 ### Stack:
 Nustore fue diseñado en Figma, y desarrollado con frameworks populares al rededor de Javascript.
 
