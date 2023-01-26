@@ -1,6 +1,13 @@
 import { extendTheme } from '@chakra-ui/react'
 
 export const defaultTheme = extendTheme({
+    styles: {
+        global: {
+            body: {
+                bg: "#FAFAFA"
+            }
+        }
+    },
     colors: {
         brand: {
             0: "#FFF", // white

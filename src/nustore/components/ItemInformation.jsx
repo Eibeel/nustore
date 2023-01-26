@@ -1,12 +1,32 @@
-import { Box, Stack, Text, VStack } from "@chakra-ui/react"
+import { Box, Image, Stack, Text, VStack } from "@chakra-ui/react"
+import { useSelector } from "react-redux"
 import { Footer } from "./Footer"
 import { ItemTableInformation } from "./ItemTableInformation"
 
-
 export const ItemInformation = () => {
+
+    const { product_id, products, description } = useSelector(state => state.nustore);
+    const options = { style: 'currency', currency: 'COP' };
+
+    let productInfo = {};
+
+    products.map(pid => {
+        if (pid.id === product_id) {
+            productInfo = { ...pid }
+            return productInfo
+        }
+        return productInfo
+    })
+
     return (
         <Box>
             <VStack spacing="2rem">
+                <Image
+                    src={productInfo.thumbnail?.replace("-I", "-C")}
+                    objectFit="contain"
+                    height={{ base: "20rem", md: "22rem" }}
+                    width={{ base: "100vw", md: "24rem" }}
+                />
                 <Stack
                     w={{ base: "22rem", md: "44.5rem" }}
                     border="solid 1px #EDEDED"
@@ -14,10 +34,10 @@ export const ItemInformation = () => {
                     m="1.5rem auto 0"
                 >
                     <Text fontWeight="light">
-                        New Macbook Air M2, 8GB RAM, SSD 256GB, TurboPower 55W
+                        {productInfo.title}
                     </Text>
                     <Text fontWeight="bold">
-                        $ 5.250.000
+                        {new Intl.NumberFormat('es-CO', options).format(productInfo.price)} {productInfo.currency_id}
                     </Text>
                 </Stack>
 
@@ -30,10 +50,7 @@ export const ItemInformation = () => {
                         Descripción
                     </Text>
                     <Text fontWeight="light">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Esse neque vitae veniam nobis tenetur accusamus, nesciunt est,
-                        consequuntur aspernatur eveniet aperiam aliquid nam fugit perferendis
-                        perspiciatis omnis quia expedita modi!
+                        {description}
                     </Text>
                 </Stack>
                 <ItemTableInformation />

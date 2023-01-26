@@ -1,11 +1,10 @@
 import React from "react";
-import { Link as ReactLink } from "react-router-dom";
-import { Box, Flex, Link, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import { BannerCarousel, NavBar, GridCategories, Footer, ProductCard } from '../components'
 
 export const HomePage = () => {
     return (
-        <Box overflowX="hidden">
+        <Box overflowX="hidden" >
             <NavBar />
             <section className="wrapper_banner">
                 <BannerCarousel />
@@ -39,16 +38,6 @@ export const HomePage = () => {
                 <VStack spacing={4} m="24px auto">
                     <ProductCard />
                 </VStack>
-
-                <Link
-                    fontSize="14px"
-                    fontWeight="medium"
-                    color="brand.20"
-                    as={ReactLink}
-                    to="/categoria"
-                >
-                    Ver más...
-                </Link>
 
                 <Box
                     w={{ base: "22rem", md: "md", lg: "44.5rem" }}

@@ -1,13 +1,15 @@
 import React from 'react'
 import { Card, CardBody, Image, Stack, Text } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { SkeletonCard } from './SkeletonCard';
+import { setProduct } from '../../store/nustore/thunks';
 
 export const ProductCard = () => {
 
-    const { isLoading, products } = useSelector(state => state.nustore);
+    const { isLoading, products, category_id } = useSelector(state => state.nustore);
     const options = { style: 'currency', currency: 'COP' };
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -25,9 +27,10 @@ export const ProductCard = () => {
                             w={['22rem', 'md', '44.5rem']}
                             cursor="pointer"
                             as={Link}
-                            to="/articulo"
+                            to={`/c/${category_id}/p/${product.title}`}
                             key={product.id}
                             _hover={{ boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px;" }}
+                            onClick={() => dispatch(setProduct(product.id))}
                         >
                             <Image
                                 src={product.thumbnail}

@@ -7,18 +7,26 @@ import { Footer, NavBar, ProductCard } from "../components"
 export const SelectedCategoryPage = () => {
 
     const dispatch = useDispatch();
-    const { page, category_id } = useSelector(state => state.nustore);
+    const { page, category_id, categories } = useSelector(state => state.nustore);
 
     const handleNextPage = () => {
         dispatch(setItems(page, category_id))
     }
 
     const handlePrevPage = () => {
-        if (page === 0) {
-            dispatch(setItems(page, category_id))
-        }
+        if (page === 1) return
         dispatch(setItems(page - 2, category_id))
     }
+
+    let obj = {};
+
+    categories.map(c => {
+        if (c.id === category_id) {
+            obj = { ...c }
+            return obj
+        }
+        return obj
+    })
 
     return (
         <VStack justifyContent="space-between" height="100vh" overflowX="hidden">
@@ -26,7 +34,7 @@ export const SelectedCategoryPage = () => {
             <Box height="auto" display="flex" flexDirection="column" alignItems="center">
                 <NavBar />
                 <Text fontWeight="semibold" w={{ base: "22rem", md: "44.5rem" }} m="20px auto 24px">
-                    Categoria seleccionada
+                    Destacados en la sección de {obj.name}
                 </Text>
                 <VStack spacing={4} mb="2rem" w="fit-content">
                     <ProductCard />

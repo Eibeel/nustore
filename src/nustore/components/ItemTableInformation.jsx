@@ -1,12 +1,28 @@
 import { Table, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react"
+import { useSelector } from "react-redux";
 
 
 export const ItemTableInformation = () => {
+
+    const { product_id, products } = useSelector(state => state.nustore);
+
+    let productInfo = {};
+
+    products.map(pinfo => {
+        if (pinfo.id === product_id) {
+            const { attributes } = pinfo;
+            productInfo = attributes
+            return productInfo
+        }
+        return productInfo
+    })
+
     return (
         <TableContainer>
             <Table
                 variant='simple'
                 size={{ base: "md" }}
+                fontSize={{ base: "14px", md: "16px" }}
                 w={{ base: "22rem", md: "44.5rem" }}
             >
                 <Thead>
@@ -16,18 +32,14 @@ export const ItemTableInformation = () => {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    <Tr>
-                        <Td>Marca</Td>
-                        <Td>AMD</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Generacion</Td>
-                        <Td>AMD RYZEN 3</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>Nucleos</Td>
-                        <Td>6</Td>
-                    </Tr>
+                    {
+                        productInfo.map(details => (
+                            <Tr key={details.value_id}>
+                                <Td>{details.name}</Td>
+                                <Td>{details.value_name}</Td>
+                            </Tr>
+                        ))
+                    }
                 </Tbody>
             </Table>
         </TableContainer>

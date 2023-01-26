@@ -1,8 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { LoginPage, RegisterPage } from "../auth/pages"
 import { ArticlePage, HomePage, SelectedCategoryPage, ShoppingPage } from "../nustore/pages"
-// import { AuthRoutes } from "../auth/routes/AuthRoutes"
-// import { NustoreRoutes } from "../nustore/routes/NustoreRoutes"
 
 
 export const AppRouter = () => {
@@ -11,8 +9,8 @@ export const AppRouter = () => {
 
             <Route path="/*" element={<HomePage />} />
             <Route path="/home" element={<HomePage />} />
-            <Route path="/categoria/:id" element={<SelectedCategoryPage />} />
-            <Route path="/articulo" element={<ArticlePage />} />
+            <Route path="/c/:id" element={<SelectedCategoryPage />} />
+            <Route path="/c/:id/p/:product_title" element={<ArticlePage />} />
             <Route path="/carrito" element={<ShoppingPage />} />
 
             {/* validar */}

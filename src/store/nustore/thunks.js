@@ -1,6 +1,5 @@
-// import { baseApi } from "../../services/api/baseApi"
-import { categories, categoryItems } from "../../services/api";
-import { setCategories, setProducts, startLoading } from "./nustoreSlice";
+import { categories, categoryItems, itemDescription } from "../../services/api";
+import { setCategories, setDescription, setProductId, setProducts, startLoading } from "./nustoreSlice";
 
 export const startIsLoading = () => {
     return (dispatch) => {
@@ -16,12 +15,11 @@ export const setCategory = () => {
 
         const { data } = await categories();
 
-        dispatch(setCategories(data));
+        dispatch(setCategories({ categories: data }));
     }
-
 }
 
-export const setItems = (page = 0, category_id  = "") => {
+export const setItems = (page = 0, category_id = "") => {
 
     return async (dispatch) => {
 
@@ -32,19 +30,16 @@ export const setItems = (page = 0, category_id  = "") => {
         dispatch(setProducts({ products: results, page: page + 1, category_id }))
 
     }
-
 }
 
-// export const setIdCategories = (category_id = "") => {
-    
-//     return async (dispatch) => {
+export const setProduct = (product_id = "") => {
 
-//         dispatch(startLoading());
+    return async (dispatch) => {
 
-//         const products = await categoryItems(category_id);
+        dispatch(setProductId({ product_id }))
 
-//         dispatch(setProducts())
+        const { data: { plain_text } } = await itemDescription(product_id);
 
-//     }
-
-// }
+        dispatch(setDescription({ description: plain_text }))
+    }
+}
