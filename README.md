@@ -1,6 +1,8 @@
 # Nustore
 
-Explora entre miles de productos, navega entre las diferentes categorías y observa cada detalle de tus productos de interés a través de Nustore web e-commerce.
+Basada en las webs e-commerce, Nustore te permite
+explorar entre sus miles de productos, desde su búsqueda y el navegar entre sus diferentes
+categorías, hasta observar cada detalle de sus productos de intererés.
 
 - Explorar... 🚀
 
