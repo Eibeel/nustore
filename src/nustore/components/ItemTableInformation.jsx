@@ -22,7 +22,7 @@ export const ItemTableInformation = () => {
             <Table
                 variant='simple'
                 size={{ base: "md" }}
-                fontSize={{ base: "14px", md: "16px" }}
+                fontSize={{ base: "13px", md: "16px" }}
                 w={{ base: "22rem", md: "44.5rem" }}
             >
                 <Thead>

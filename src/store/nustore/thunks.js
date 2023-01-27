@@ -19,15 +19,15 @@ export const setCategory = () => {
     }
 }
 
-export const setItems = (page = 0, category_id = "") => {
+export const setItems = (page = 0, category_id = "", query = "") => {
 
     return async (dispatch) => {
 
         dispatch(startLoading());
 
-        const { data: { results } } = await categoryItems(page * 10, category_id);
+        const { data: { results } } = await categoryItems(page * 10, category_id, query);
 
-        dispatch(setProducts({ products: results, page: page + 1, category_id }))
+        dispatch(setProducts({ products: results, page: page + 1, category_id, query }))
 
     }
 }

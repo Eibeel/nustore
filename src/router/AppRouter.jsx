@@ -1,9 +1,15 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useLocation } from "react-router-dom"
 import { LoginPage, RegisterPage } from "../auth/pages"
-import { ArticlePage, HomePage, SelectedCategoryPage, ShoppingPage } from "../nustore/pages"
+import { ArticlePage, HomePage, SelectedCategoryPage } from "../nustore/pages"
 
 
 export const AppRouter = () => {
+
+    const { pathname } = useLocation()
+
+    const lastPath = pathname;
+    localStorage.setItem("lastPath", lastPath)
+
     return (
         <Routes>
 
@@ -11,7 +17,6 @@ export const AppRouter = () => {
             <Route path="/home" element={<HomePage />} />
             <Route path="/c/:id" element={<SelectedCategoryPage />} />
             <Route path="/c/:id/p/:product_title" element={<ArticlePage />} />
-            <Route path="/carrito" element={<ShoppingPage />} />
 
             {/* validar */}
             <Route path="/login" element={<LoginPage />} />

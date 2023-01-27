@@ -7,6 +7,7 @@ export const nustoreSlice = createSlice({
         products: [],
         description: "",
         product_id: "",
+        query: "",
         page: 0,
         category_id: "",
         isLoading: false
@@ -20,6 +21,7 @@ export const nustoreSlice = createSlice({
             state.products = action.payload.products;
             state.page = action.payload.page;
             state.category_id = action.payload.category_id;
+            state.query = action.payload.query;
             state.isLoading = false;
         },
         setDescription: (state, action) => {

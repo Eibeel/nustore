@@ -26,7 +26,7 @@ export const DrawerLeft = () => {
     const status = useCheckAuth();
     const dispatch = useDispatch();
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { categories, page } = useSelector(state => state.nustore);
+    const { categories } = useSelector(state => state.nustore);
     const { displayName } = useSelector(state => state.auth)
 
     const onLogout = () => {
@@ -68,7 +68,7 @@ export const DrawerLeft = () => {
                                         _hover={{ color: "#E54335" }}
                                         as={Link}
                                         to={`/c/${category.id}`}
-                                        onClick={() => dispatch(setItems(page, category.id))}
+                                        onClick={() => dispatch(setItems(null, category.id))}
                                     >
                                         {category.name}
                                     </Text>

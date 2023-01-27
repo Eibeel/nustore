@@ -36,7 +36,7 @@ export const ItemInformation = () => {
                     <Text fontWeight="light">
                         {productInfo.title}
                     </Text>
-                    <Text fontWeight="bold">
+                    <Text fontWeight="bold" textAlign="right" color="#e63946">
                         {new Intl.NumberFormat('es-CO', options).format(productInfo.price)} {productInfo.currency_id}
                     </Text>
                 </Stack>

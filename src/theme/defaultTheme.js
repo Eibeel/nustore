@@ -4,7 +4,8 @@ export const defaultTheme = extendTheme({
     styles: {
         global: {
             body: {
-                bg: "#FAFAFA"
+                bg: "#FAFAFA",
+                h: "100%",
             }
         }
     },
