@@ -1,8 +1,13 @@
 import { Box, Flex } from "@chakra-ui/react"
 import GoogleButton from "react-google-button"
+import { useDispatch } from "react-redux"
+import { startGoogle } from "../../store/auth/thunks"
 
 
-export const FormCard = ({children}) => {
+export const FormCard = ({ children }) => {
+
+    const dispatch = useDispatch();
+
     return (
         <Box
             bg="brand.0"
@@ -17,6 +22,7 @@ export const FormCard = ({children}) => {
                 <GoogleButton
                     type="light"
                     label="Continuar con Google"
+                    onClick={() => dispatch(startGoogle())}
                 />
             </Flex>
 

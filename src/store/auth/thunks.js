@@ -1,5 +1,18 @@
 import { loginUser, logoutUser, registerUser } from '../../services/auth';
+import { signInGoogle } from '../../services/auth/signInGoogle';
 import { login, logout } from './authSlice';
+
+export const startGoogle = () => {
+
+    return async (dispatch) => {
+
+        const result = await signInGoogle();
+
+        if (!result.ok) return dispatch(logout(result.errorMessage))
+
+        dispatch(login(result))
+    }
+}
 
 export const startRegister = ({ email, password, displayName }) => {
 
