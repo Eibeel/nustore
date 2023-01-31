@@ -22,7 +22,7 @@ export const ItemInformation = () => {
         <Box>
             <VStack spacing="2rem">
                 <Image
-                    src={productInfo.thumbnail?.replace("-I", "-C")}
+                    src={productInfo?.thumbnail.replace("-I", "-C")}
                     objectFit="contain"
                     height={{ base: "20rem", md: "22rem" }}
                     width={{ base: "100vw", md: "24rem" }}
@@ -33,11 +33,11 @@ export const ItemInformation = () => {
                     padding="8px 16px"
                     m="1.5rem auto 0"
                 >
-                    <Text fontWeight="light">
-                        {productInfo.title}
+                    <Text fontWeight="light" font>
+                        {productInfo?.title}
                     </Text>
-                    <Text fontWeight="bold" textAlign="right" color="#e63946">
-                        {new Intl.NumberFormat('es-CO', options).format(productInfo.price)} {productInfo.currency_id}
+                    <Text fontWeight="bold">
+                        {new Intl.NumberFormat('es-CO', options).format(productInfo?.price)} {productInfo?.currency_id}
                     </Text>
                 </Stack>
 

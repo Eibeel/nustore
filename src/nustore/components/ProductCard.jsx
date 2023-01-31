@@ -1,8 +1,7 @@
 import React from 'react'
-import { Card, CardBody, Image, Stack, Text } from "@chakra-ui/react";
+import { Card, CardBody, Image, Spinner, Stack, Text } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { SkeletonCard } from './SkeletonCard';
 import { setProduct } from '../../store/nustore/thunks';
 
 export const ProductCard = () => {
@@ -15,7 +14,7 @@ export const ProductCard = () => {
         <>
             {
                 isLoading
-                    ? <SkeletonCard />
+                    ? <Spinner size='lg' thickness='4px' speed='1s' m="2rem" />
                     : products.map(product => (
                         <Card
                             align="center"
@@ -41,7 +40,7 @@ export const ProductCard = () => {
                             />
                             <CardBody padding="0">
                                 <Stack spacing="12px" paddingLeft="20px">
-                                    <Text fontWeight="light" fontSize="14px">
+                                    <Text id="text_title" fontWeight="light" fontSize="14px">
                                         {product.title}
                                     </Text>
                                     <Text fontWeight="semibold">
