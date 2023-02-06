@@ -1,12 +1,11 @@
 import React from "react";
 import { Box, Link, SimpleGrid } from "@chakra-ui/react";
 import { Link as ReactLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setCategory, setItems } from "../../store/nustore/thunks";
 
 export const GridCategories = () => {
 
-    const { page } = useSelector(state => state.nustore);
     const dispatch = useDispatch();
 
     return (
@@ -24,7 +23,7 @@ export const GridCategories = () => {
                     onClick={() => {
                         dispatch(setCategory());
                         setTimeout(() => {
-                            dispatch(setItems(page, "MCO1000"))
+                            dispatch(setItems(null, "MCO1000"))
                         }, 800)
                     }}
                 >
@@ -42,7 +41,7 @@ export const GridCategories = () => {
                     onClick={() => {
                         dispatch(setCategory());
                         setTimeout(() => {
-                            dispatch(setItems(page, "MCO1648"))
+                            dispatch(setItems(null, "MCO1648"))
                         }, 800)
                     }}
                 >
@@ -60,7 +59,7 @@ export const GridCategories = () => {
                     onClick={() => {
                         dispatch(setCategory());
                         setTimeout(() => {
-                            dispatch(setItems(page, "MCO1051"))
+                            dispatch(setItems(null, "MCO1051"))
                         }, 800)
                     }}
                 >
@@ -78,7 +77,7 @@ export const GridCategories = () => {
                     onClick={() => {
                         dispatch(setCategory());
                         setTimeout(() => {
-                            dispatch(setItems(page, "MCO1430"))
+                            dispatch(setItems(null, "MCO1430"))
                         }, 800)
                     }}
                 >
