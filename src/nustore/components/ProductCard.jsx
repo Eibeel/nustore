@@ -40,7 +40,7 @@ export const ProductCard = () => {
                             />
                             <CardBody padding="0">
                                 <Stack spacing="12px" paddingLeft="20px">
-                                    <Text id="text_title" fontWeight="light" fontSize="14px">
+                                    <Text id="text_title" fontWeight="light" fontSize="14px" noOfLines={2}>
                                         {product.title}
                                     </Text>
                                     <Text fontWeight="semibold">

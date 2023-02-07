@@ -1,9 +1,8 @@
-import { Box, HStack, IconButton, Image, Spinner, Square, Text, VStack } from "@chakra-ui/react"
+import { Box, HStack, IconButton, Spinner, Square, Text, VStack } from "@chakra-ui/react"
 import { NavArrowLeft, NavArrowRight } from "iconoir-react"
 import { useDispatch, useSelector } from "react-redux"
 import { setItems } from "../../store/nustore"
 import { Footer, NavBar, ProductCard } from "../components"
-import notFound from '../../assets/images/void.svg'
 
 export const SelectedCategoryPage = () => {
 
@@ -34,9 +33,9 @@ export const SelectedCategoryPage = () => {
             <NavBar />
             <Box height="auto" display="flex" flexDirection="column">
                 {
-                    products.length === 0 && category_id === null
+                    products.length === 0 && category_id === "void"
                         ?
-                        <Image src={notFound} h="264px" w="264px" filter="grayscale(1)" />
+                        <Text>Lo sentimos, no hay artículos existentes para esta búsqueda.</Text>
                         :
                         <Box height="auto" display="flex" flexDirection="column" alignItems="center">
                             {

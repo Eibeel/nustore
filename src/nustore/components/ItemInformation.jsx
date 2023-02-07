@@ -21,12 +21,18 @@ export const ItemInformation = () => {
     return (
         <Box>
             <VStack spacing="2rem">
-                <Image
-                    src={productInfo?.thumbnail.replace("-I", "-C")}
-                    objectFit="contain"
-                    height={{ base: "20rem", md: "22rem" }}
-                    width={{ base: "100vw", md: "24rem" }}
-                />
+                <Box
+                    border="solid 1px #EDEDED"
+                    w={{ base: "22rem", md: "44.5rem" }}
+                    align="center"
+                >
+                    <Image
+                        src={productInfo?.thumbnail.replace("-I", "-C")}
+                        objectFit="contain"
+                        height={{ base: "20rem", md: "22rem" }}
+                        width={{ base: "100vw", md: "24rem" }}
+                    />
+                </Box>
                 <Stack
                     w={{ base: "22rem", md: "44.5rem" }}
                     border="solid 1px #EDEDED"

@@ -32,7 +32,7 @@ export const NavBar = () => {
     })
 
     const onSearchAction = () => {
-        dispatch(setItems(null, null, query));
+        dispatch(setItems("", "void", query));
         setTimeout(() => {
             setQuery("")
         }, 600);

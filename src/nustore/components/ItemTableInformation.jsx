@@ -8,7 +8,7 @@ export const ItemTableInformation = () => {
 
     let productInfo = {};
 
-    products.map(pinfo => {
+    products?.map(pinfo => {
         if (pinfo.id === product_id) {
             const { attributes } = pinfo;
             productInfo = attributes
