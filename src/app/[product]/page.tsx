@@ -28,7 +28,7 @@ export default async function ProductDetailsPage({
 			<div className='max-w-4xl mx-auto'>
 				<Suspense fallback={<DetailsProductSkeleton />}>
 					<div className='flex flex-col md:grid md:grid-cols-2 justify-center gap-4 md:gap-12 pt-8 md:pt-10 md:px-4 lg:px-0'>
-						<div className='max-w-md lg:max-w-lg min-w-96 mx-auto md:mx-0'>
+						<div className='max-w-md lg:max-w-lg w-full md:min-w-96 mx-auto md:mx-0'>
 							<img
 								className='w-full'
 								src={item.thumbnail?.replace('-I', '-C')}

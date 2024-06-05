@@ -18,7 +18,9 @@ export default function Pagination({ offset: page }: { offset: number }) {
 			<Link
 				href={handleSearch(currentPage - 1)}
 				title='Página anterior'
-				className='inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180'
+				className={`inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180 ${
+					page === 0 ? 'pointer-events-none bg-slate-100' : 'cursor-pointer'
+				}`}
 			>
 				<span className='sr-only'>Página anterior</span>
 				<svg

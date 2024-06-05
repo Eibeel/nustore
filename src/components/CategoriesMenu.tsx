@@ -22,7 +22,7 @@ export default function CategoriesMenu({
 		<div className='relative inline-block'>
 			<button
 				type='button'
-				className='flex items-center gap-1 text-white mx-auto'
+				className='flex items-center gap-1 text-white mx-auto p-1'
 				onClick={toggleDropdown}
 			>
 				<Bars3Icon className='size-5 md:hidden' />
@@ -31,7 +31,7 @@ export default function CategoriesMenu({
 			</button>
 
 			{isOpen && (
-				<div className='origin-top-right z-50 absolute right-0 mt-3 w-56 max-h-[762px] overflow-y-auto rounded shadow-lg bg-white ring-1 ring-black ring-opacity-5'>
+				<div className='origin-top-right z-50 absolute right-0 mt-3 w-52 max-h-96 md:max-h-[640px] overflow-y-auto rounded shadow-lg bg-white ring-1 ring-black ring-opacity-5'>
 					<ul
 						role='menu'
 						aria-orientation='vertical'

@@ -23,7 +23,7 @@ export default function ProductCard({
 }: ProductProps) {
 	return (
 		// <div className='grid grid-cols-2 md:grid-cols-5 gap-4'>
-		<div className='bg-white rounded-lg shadow-sm h-fit w-auto min-w-48 min-h-64 flex flex-col gap-4 px-2 py-3 hover:scale-[1.02] transition-all'>
+		<div className='bg-white rounded-lg shadow-sm h-fit w-auto min-h-64 flex flex-col gap-4 px-2 py-3 hover:scale-[1.02] transition-all'>
 			<Link
 				href={{
 					pathname: `/${formatSlug.generateSlug(title)}`,
@@ -49,10 +49,8 @@ export default function ProductCard({
 					</div>
 					<div className='flex gap-1'>
 						<span
-							className={`text-xs font-medium rounded px-2.5 py-0.5 w-fit ${
-								free_shipping
-									? 'bg-emerald-100 text-emerald-700'
-									: 'bg-amber-100 text-amber-700'
+							className={`text-xs font-medium rounded px-2.5 py-0.5 w-fit bg-emerald-100 text-emerald-700 ${
+								free_shipping ? 'block' : 'hidden'
 							}`}
 						>
 							{free_shipping ? 'Envío gratis' : 'Envío no incluido'}
