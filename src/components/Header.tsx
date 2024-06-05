@@ -19,7 +19,7 @@ export default async function Header() {
 						<div className='flex flex-row gap-2'>
 							<Link href='/cart'>
 								<ShoppingCartIcon className='size-5' />
-								<span className='md:hidden'>Carrito</span>
+								<span className='hidden md:block'>Carrito</span>
 							</Link>
 						</div>
 					</div>
