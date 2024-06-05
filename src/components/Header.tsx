@@ -17,9 +17,9 @@ export default async function Header() {
 						</h1>
 						<CategoriesMenu categories={categories} />
 						<div className='flex flex-row gap-2'>
-							<ShoppingCartIcon className='size-5' />
-							<Link href='/cart' className='hidden md:block'>
-								Carrito
+							<Link href='/cart'>
+								<ShoppingCartIcon className='size-5' />
+								<span className='md:hidden'>Carrito</span>
 							</Link>
 						</div>
 					</div>
