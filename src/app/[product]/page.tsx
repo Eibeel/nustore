@@ -4,6 +4,7 @@ import ProductDetails from '@/components/ProductDetails'
 import Section from '@/components/Section'
 import AddCartButton from '@/components/AddCartButton'
 import DetailsProductSkeleton from '@/components/skeletons/DetailsProductSkeleton'
+import Gallery from '@/components/Gallery'
 import api from '@/services/api'
 import formatSlug from '@/utils/generateSlug'
 import percentage from '@/utils/percentage'
@@ -27,13 +28,9 @@ export default async function ProductDetailsPage({
 		<Section>
 			<div className='max-w-4xl mx-auto'>
 				<Suspense fallback={<DetailsProductSkeleton />}>
-					<div className='flex flex-col md:grid md:grid-cols-2 justify-center gap-4 md:gap-12 pt-8 md:pt-10 md:px-4 lg:px-0'>
-						<div className='max-w-md lg:max-w-lg w-full md:min-w-96 mx-auto md:mx-0'>
-							<img
-								className='w-full'
-								src={item.thumbnail?.replace('-I', '-C')}
-								alt={item.title}
-							/>
+					<div className='flex flex-col md:grid md:grid-cols-2 justify-center gap-4 md:gap-12 pt-8 md:pt-14 md:px-4 lg:px-0'>
+						<div className='lg:max-w-lg w-full md:min-w-96 mx-auto md:mx-0'>
+							<Gallery pictures={item.pictures} />
 						</div>
 
 						<div className='lg:mt-2 md:min-w-96'>
@@ -94,7 +91,7 @@ export default async function ProductDetailsPage({
 						</div>
 					</div>
 				</Suspense>
-				<hr className='my-8 mx-auto' />
+				<hr className='mb-8 mt-8 md:mt-14 mx-auto' />
 				<h3 className='text-xl md:text-2xl font-semibold text-pretty'>
 					Características
 				</h3>

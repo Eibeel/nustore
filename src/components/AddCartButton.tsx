@@ -30,8 +30,9 @@ export default function AddCartButton({
 	return (
 		<>
 			<button
+				disabled // deshabilitado mientras se implementa funcionalidad correctamente
 				type='button'
-				className='flex items-center justify-center gap-2 mt-4 bg-cyan-900 hover:bg-cyan-950 transition hover:scale-[1.01] text-white font-medium px-6 py-2 rounded'
+				className='cursor-pointer flex items-center justify-center gap-2 mt-4 bg-cyan-900 hover:bg-cyan-950 transition text-white font-medium px-6 py-2 rounded'
 				onClick={handleSetStore}
 			>
 				<ShoppingCartIcon className='size-5' />
