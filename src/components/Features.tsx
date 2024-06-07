@@ -7,22 +7,22 @@ import {
 
 const FEATURES = [
 	{
-		title: 'Shipping',
+		title: 'Envíos',
 		icon: <TruckIcon className='size-7 text-gray-800' />,
 		description: 'Envíos a todo el país'
 	},
 	{
-		title: 'Transparent',
+		title: 'Transparencia',
 		icon: <ArrowPathIcon className='size-7 text-gray-800' />,
 		description: 'Sin costos ocultos'
 	},
 	{
-		title: 'Secure',
+		title: 'Seguro',
 		icon: <ShieldCheckIcon className='size-7 text-gray-800' />,
 		description: 'Utilizamos las últimas medidas de seguridad.'
 	},
 	{
-		title: 'Support',
+		title: 'Soporte',
 		icon: <ChatBubbleOvalLeftEllipsisIcon className='size-7 text-gray-800' />,
 		description: 'El soporte está disponible 24/7'
 	}
@@ -34,7 +34,7 @@ export default function Features() {
 			{FEATURES.map((feature) => (
 				<div
 					key={feature.title}
-					className='flex flex-col md:flex-row items-center gap-2 space-x-2'
+					className='flex flex-col md:flex-row items-center gap-2'
 				>
 					{feature.icon}
 					<div className='flex flex-col'>

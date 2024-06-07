@@ -32,7 +32,7 @@ export default function AddCartButton({
 			<button
 				disabled // deshabilitado mientras se implementa funcionalidad correctamente
 				type='button'
-				className='cursor-pointer flex items-center justify-center gap-2 mt-4 bg-cyan-900 hover:bg-cyan-950 transition text-white font-medium px-6 py-2 rounded'
+				className='cursor-not-allowed flex items-center justify-center gap-2 mt-4 bg-cyan-900 hover:bg-cyan-950 transition text-white font-medium px-6 py-2 rounded'
 				onClick={handleSetStore}
 			>
 				<ShoppingCartIcon className='size-5' />

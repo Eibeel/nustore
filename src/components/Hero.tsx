@@ -1,11 +1,19 @@
 export default function Hero() {
 	return (
-		<div>
+		<div className='relative'>
 			<img
-				src='https://as2.ftcdn.net/v2/jpg/06/10/26/15/1000_F_610261529_vk9kf4ooTP5eSsQdOEyB4miRHn1YWCD1.jpg'
-				alt=''
-				className='w-full h-96 object-cover object-center rounded-lg shadow-sm'
+				src='/images/shipping.webp'
+				alt='Shipping banner'
+				className='w-full h-96 object-cover object-right md:object-center rounded-md shadow-sm'
 			/>
+			<a
+				target='_blank'
+				rel='noreferrer'
+				href='https://www.freepik.es/foto-gratis/representacion-cadena-suministro-vehiculos-cajas_33752560.htm'
+				className='absolute bottom-2 right-4 text-sm text-gray-900 font-semibold'
+			>
+				Diseñado por <span className='text-blue-600'>Freepik</span>
+			</a>
 		</div>
 	)
 }
