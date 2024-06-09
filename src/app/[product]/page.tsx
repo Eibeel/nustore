@@ -2,9 +2,9 @@ import { Suspense } from 'react'
 import { ShieldCheckIcon } from '@heroicons/react/24/outline'
 import ProductDetails from '@/components/ProductDetails'
 import Section from '@/components/Section'
-import AddCartButton from '@/components/AddCartButton'
 import DetailsProductSkeleton from '@/components/skeletons/DetailsProductSkeleton'
 import Gallery from '@/components/Gallery'
+import AddProductButton from '@/components/AddProductButton'
 import api from '@/services/api'
 import formatSlug from '@/utils/generateSlug'
 import percentage from '@/utils/percentage'
@@ -21,6 +21,7 @@ export async function generateMetadata({
 export default async function ProductDetailsPage({
 	searchParams: { id }
 }: { searchParams: { id: string } }) {
+	if (!id) return
 	const { plain_text } = await api.getDescriptionByItem(id)
 	const item = await api.getDetailsItem(id)
 
@@ -35,10 +36,22 @@ export default async function ProductDetailsPage({
 
 						<div className='lg:mt-2 md:min-w-96'>
 							<div className='flex gap-3'>
-								<span className='text-xs font-semibold rounded px-2.5 py-0.5 w-fit bg-emerald-100 text-emerald-700'>
-									{item.condition}
+								<span
+									className={`text-xs font-semibold rounded px-2.5 py-0.5 w-fit ${
+										item.condition === 'new'
+											? 'bg-emerald-100 text-emerald-700'
+											: 'bg-orange-100 text-orange-700'
+									}`}
+								>
+									{item.condition === 'new' ? 'Nuevo' : 'Usado'}
 								</span>
-								<span className='text-xs font-semibold rounded px-2.5 py-0.5 w-fit bg-emerald-100 text-emerald-700'>
+								<span
+									className={`text-xs font-semibold rounded px-2.5 py-0.5 w-fit ${
+										item.shipping.free_shipping
+											? 'bg-emerald-100 text-emerald-700'
+											: 'bg-orange-100 text-orange-700'
+									}`}
+								>
 									{item.shipping.free_shipping
 										? 'Envío gratis'
 										: 'Envío no incluido'}
@@ -71,7 +84,7 @@ export default async function ProductDetailsPage({
 								</div>
 							</div>
 
-							<AddCartButton
+							<AddProductButton
 								id={item.id}
 								originalPrice={item.original_price}
 								price={item.price}

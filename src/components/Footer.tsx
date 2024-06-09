@@ -1,7 +1,7 @@
 export default function Footer() {
 	const date = new Date().getFullYear()
 	return (
-		<footer className='bg-white mt-16 pb-12 pt-8'>
+		<footer className='bg-white mt-auto pb-12 pt-8'>
 			<div className='mx-auto max-w-5xl px-4  sm:px-6 lg:px-8 border-t border-gray-100'>
 				<div className='mt-12'>
 					<ul className='flex justify-center gap-2 sm:justify-end'>

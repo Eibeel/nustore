@@ -55,8 +55,14 @@ export default function ProductCard({
 						>
 							{free_shipping ? 'Envío gratis' : 'Envío no incluido'}
 						</span>
-						<span className='text-xs font-medium whitespace-nowrap rounded w-fit bg-emerald-100 px-2.5 py-0.5 text-emerald-700'>
-							{condition}
+						<span
+							className={`text-xs font-medium whitespace-nowrap rounded w-fit px-2.5 py-0.5 ${
+								condition === 'new'
+									? 'bg-emerald-100 text-emerald-700'
+									: 'bg-orange-100 text-orange-700'
+							}`}
+						>
+							{condition === 'new' ? 'Nuevo' : 'Usado'}
 						</span>
 					</div>
 				</div>

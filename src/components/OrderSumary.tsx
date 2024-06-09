@@ -1,20 +1,24 @@
-import type { ItemStore } from '@/store/shippingCart.store'
-import currencyFormat from '@/utils/currencyFormat'
 import Link from 'next/link'
+import currencyFormat from '@/utils/currencyFormat'
+import type { Product } from '@/store/useCartStore'
 
-export default function OrderSumary({ items }: { items: ItemStore[] }) {
-	const total = items.reduce((acc, item) => acc + item.price, 0)
-	const originalPrice = items.reduce(
-		(acc, item) => acc + item.originalPrice || item.price,
+export default function OrderSumary({ products }: { products: Product[] }) {
+	const total = products.reduce(
+		(accumulator, currentProduct) => accumulator + currentProduct.price,
 		0
 	)
-	const savings = originalPrice - total
+	const subtotal = products.reduce(
+		(accumulator, item) =>
+			accumulator + (item.originalPrice ? item.originalPrice : item.price),
+		0
+	)
+	const savings = total - subtotal
 
 	return (
 		<div className='mx-auto mt-6 flex-1 space-y-6 lg:mt-0'>
-			<div className='space-y-4 rounded-lg border border-gray-200 p-4 shadow-sm'>
+			<div className='space-y-4 rounded-lg border border-gray-200 p-4 shadow-sm md:w-64'>
 				<span className='text-lg text-center font-semibold block'>
-					Order summary
+					Resumen del pedido
 				</span>
 
 				<div className='space-y-4'>
@@ -22,7 +26,7 @@ export default function OrderSumary({ items }: { items: ItemStore[] }) {
 						<dl className='flex items-center justify-between gap-2'>
 							<dt className='text-sm font-normal text-gray-500'>Subtotal</dt>
 							<dd className='text-sm font-semibold'>
-								{currencyFormat(originalPrice)}
+								{currencyFormat(subtotal)}
 							</dd>
 						</dl>
 
