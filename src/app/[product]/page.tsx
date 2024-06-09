@@ -27,8 +27,8 @@ export default async function ProductDetailsPage({
 
 	return (
 		<Section>
-			<div className='max-w-4xl mx-auto'>
-				<Suspense fallback={<DetailsProductSkeleton />}>
+			<Suspense fallback={<DetailsProductSkeleton />}>
+				<div className='max-w-4xl mx-auto'>
 					<div className='flex flex-col md:grid md:grid-cols-2 justify-center gap-4 md:gap-12 pt-8 md:pt-14 md:px-4 lg:px-0'>
 						<div className='lg:max-w-lg w-full md:min-w-96 mx-auto md:mx-0'>
 							<Gallery pictures={item.pictures} />
@@ -103,21 +103,21 @@ export default async function ProductDetailsPage({
 							</div>
 						</div>
 					</div>
-				</Suspense>
-				<hr className='mb-8 mt-8 md:mt-14 mx-auto' />
-				<h3 className='text-xl md:text-2xl font-semibold text-pretty'>
-					Características
-				</h3>
-				<ProductDetails attributes={item.attributes} />
-
-				<hr className='my-8 mx-auto' />
-				<div className='mx-auto flex flex-col gap-2 md:gap-3'>
+					<hr className='mb-8 mt-8 md:mt-14 mx-auto' />
 					<h3 className='text-xl md:text-2xl font-semibold text-pretty'>
-						Descripción
+						Características
 					</h3>
-					<p className='text-pretty'>{plain_text}</p>
+					<ProductDetails attributes={item.attributes} />
+
+					<hr className='my-8 mx-auto' />
+					<div className='mx-auto flex flex-col gap-2 md:gap-3'>
+						<h3 className='text-xl md:text-2xl font-semibold text-pretty'>
+							Descripción
+						</h3>
+						<p className='text-pretty'>{plain_text}</p>
+					</div>
 				</div>
-			</div>
+			</Suspense>
 		</Section>
 	)
 }
